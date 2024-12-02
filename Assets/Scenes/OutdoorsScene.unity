@@ -31768,6 +31768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lane
       objectReference: {fileID: 0}
+    - target: {fileID: 5655373589949248075, guid: 0471464c5484ed947aee7c2f9696e519, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6129926400115612793, guid: 0471464c5484ed947aee7c2f9696e519, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0009155863
