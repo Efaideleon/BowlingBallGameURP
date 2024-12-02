@@ -7,17 +7,19 @@ public class PinManager : MonoBehaviour, IPinManager
 {
     [Header("References")]
     [SerializeField] Pin bowlingPinPrefab;
+    [SerializeField] GameObject _pinsSpawnPosition;
 
     private const int NUM_PIN_ROWS = 4;
-    private readonly float _pinSpacing = 0.3f;
+    private readonly float _pinSpacing = 0.4f;
     private readonly static float _pinsBaseHeight = 1.2f;
-    private readonly static Vector2 _pinsOriginPosition = new(0, 22);
+    private Vector2 _pinsOriginPosition;
     private readonly List<Pin> _pins = new();
 
     public bool AreAllPinsSettled => _pins.All(pin => pin.IsSettled);
 
     void Start()
     {
+        _pinsOriginPosition = new (_pinsSpawnPosition.transform.position.x, _pinsSpawnPosition.transform.position.z);
         LoadPins();
     }
 

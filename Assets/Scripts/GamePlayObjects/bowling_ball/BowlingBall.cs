@@ -65,13 +65,14 @@ namespace bowling_ball
 
         private void ApplyMotionForces()
         {
-            RaycastHit? groundHit = GetGroundHitInfo();
+            var groundHit = GetGroundHitInfo();
+            Debug.Log("Ball rolling.");
             if (!groundHit.HasValue) return;
 
             var hitInfo = groundHit.Value;
-            float surfaceFriction = hitInfo.collider.material.dynamicFriction;
-            Vector3 friction = CalculateFrictionForce(surfaceFriction);
-            Vector3 lateralForce = CalculateLateralForce(surfaceFriction);
+            var surfaceFriction = hitInfo.collider.material.dynamicFriction;
+            var friction = CalculateFrictionForce(surfaceFriction);
+            var lateralForce = CalculateLateralForce(surfaceFriction);
 
             DebugLogInfo(hitInfo, friction, lateralForce);
 
