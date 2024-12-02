@@ -66,8 +66,9 @@ namespace bowling_ball
         private void ApplyMotionForces()
         {
             var groundHit = GetGroundHitInfo();
-            Debug.Log("Ball rolling.");
             if (!groundHit.HasValue) return;
+        
+            Debug.Log("Ball made contact.");
 
             var hitInfo = groundHit.Value;
             var surfaceFriction = hitInfo.collider.material.dynamicFriction;
