@@ -48,8 +48,8 @@ namespace bowling_ball
             _rb.isKinematic = false;
             _throwDirection = throwDirection;
 
-            var throwForce = CalculateThrowForce(power);
-            var spinTorque = CalculateSpinTorque();
+            Vector3 throwForce = CalculateThrowForce(power);
+            Vector3 spinTorque = CalculateSpinTorque();
 
             _rb.AddForce(throwForce, ForceMode.Impulse);
             _rb.AddTorque(spinTorque, ForceMode.Impulse);
@@ -65,13 +65,13 @@ namespace bowling_ball
 
         private void ApplyMotionForces()
         {
-            var groundHit = GetGroundHitInfo();
+            RaycastHit? groundHit = GetGroundHitInfo();
             if (!groundHit.HasValue) return;
 
             var hitInfo = groundHit.Value;
-            var surfaceFriction = hitInfo.collider.material.dynamicFriction;
-            var friction = CalculateFrictionForce(surfaceFriction);
-            var lateralForce = CalculateLateralForce(surfaceFriction);
+            float surfaceFriction = hitInfo.collider.material.dynamicFriction;
+            Vector3 friction = CalculateFrictionForce(surfaceFriction);
+            Vector3 lateralForce = CalculateLateralForce(surfaceFriction);
 
             DebugLogInfo(hitInfo, friction, lateralForce);
 

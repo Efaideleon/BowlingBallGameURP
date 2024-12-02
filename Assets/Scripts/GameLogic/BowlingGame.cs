@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BowlingGame", menuName = "BowlingBall/BowlingGame")]
 public class BowlingGame : ScriptableObject, IBowlingGame
 {
-    [SerializeField] 
+    [SerializeField]
     private BowlingGameConfig _gameConfig;
     private FrameBonusCalculator _frameBonusCalculator;
 
