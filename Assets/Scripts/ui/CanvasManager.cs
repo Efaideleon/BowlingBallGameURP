@@ -7,12 +7,10 @@ public class CanvasManager : MonoBehaviour
 
     void OnEnable() {
         _inputReader.OnMenuOpen += ToggleControlsPanel;
-        _inputReader.ActionPerformed += DisableControlsPanel;
     }
 
     void OnDisable() {
         _inputReader.OnMenuOpen -= ToggleControlsPanel;
-        _inputReader.ActionPerformed -= DisableControlsPanel;
     }
 
     private void ToggleControlsPanel() => _controlsPanel.SetActive(!_controlsPanel.activeSelf);

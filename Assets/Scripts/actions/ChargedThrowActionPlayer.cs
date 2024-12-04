@@ -4,6 +4,7 @@ namespace player {
     public class ChargedThrowActionPlayer : MonoBehaviour {
         [Header("Throw Action")]
         [SerializeField] ThrowActionConfig _throwActionConfig;
+        [SerializeField] ControllerStateManager _controllerStateManager;
         private Player _player;
 
         private Vector3 _throwDirection = Vector3.right;
@@ -36,10 +37,14 @@ namespace player {
         }
 
         private void OnChargeStarted() { 
+            if (_controllerStateManager.CurrentGameState == GameState.Start)
+                return;
             ChargedThrowAction.OnChargeStarted();
         }
 
         private void OnChargeFinished() { 
+            if (_controllerStateManager.CurrentGameState == GameState.Start)
+                return;
             ChargedThrowAction.OnChargeFinished();
         }
 

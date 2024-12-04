@@ -8,6 +8,7 @@ namespace player
         private readonly ThrowActionConfig _throwActionConfig;
         private readonly CountDownTimer _countDownTimer;
         private readonly Player _player;
+        private bool _startedCharging = false;
 
         /// <summary>
         /// A boolean to determine if player can throw the item / is holding an item.
@@ -25,15 +26,18 @@ namespace player
         public void OnChargeStarted()
         {
             if (!IsReady) { return; }
+            _startedCharging = true;
             Start();
         }
 
         public void OnChargeFinished()
         {
             if (!IsReady) { return; }
+            if (!_startedCharging) { return; }
             Stop();
             _player.Item.Swing(_player.SwingPosition);
             _countDownTimer.Start();
+            _startedCharging = false;
         }
 
         /// <summary>

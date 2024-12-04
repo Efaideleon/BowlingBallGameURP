@@ -5,7 +5,7 @@ namespace bowling_ball
     [RequireComponent(typeof(Rigidbody))]
     public class BowlingBall : MonoBehaviour
     {
-        [SerializeField] private float _forceMultiplier = 40f;
+        [SerializeField] private float _forceMultiplier = 150f;
         [SerializeField] private float _spinMultiplier = 10f;
         [SerializeField] private float _lateralFriction = 0.5f;
         [SerializeField] private float _rayCastDistance = 0.1f;

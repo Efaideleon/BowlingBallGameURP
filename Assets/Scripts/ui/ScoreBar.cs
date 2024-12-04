@@ -9,7 +9,6 @@ public class ScoreBar : UIElement {
     [SerializeField] TextMeshProUGUI _scoreText;
 
     [Header("UI Panels")]
-    [SerializeField] GameObject _readyPanel;
     [SerializeField] GameObject _scoreTable;
 
     [Header("References")]
@@ -37,13 +36,11 @@ public class ScoreBar : UIElement {
     }
 
     public void ActivatePanels() {
-        _readyPanel.SetActive(true);
-        _scoreTable.SetActive(true);
+        /*_scoreTable.SetActive(true);*/
     }
 
     private void DisablePanels() {
-        _readyPanel.SetActive(false);
-        _scoreTable.SetActive(false);
+        /*_scoreTable.SetActive(false);*/
     }
 
     void OnDestroy() {
