@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using player;
 
 public class PowerBar : MonoBehaviour {
-    [SerializeField] private Image _fillImage;
+    [SerializeField] private Slider _powerBarSlider;
     [SerializeField] private GameObject _powerBarContainer;
-    [SerializeField] private Material _material; // Ensure this is assigned in the Inspector
+    [SerializeField] private Material _material; 
     [SerializeField] PlayerController _playerController;
 
     private float ChargePercentage => _playerController.ChargedThrowAction.ChargePercentage;
@@ -17,12 +17,18 @@ public class PowerBar : MonoBehaviour {
     void Update() {
         if (ChargePercentage > 0) {
             SetPowerBarVisibility(true);
-            _fillImage.fillAmount = ChargePercentage;
-            _material.SetFloat("_GradientHue", ChargePercentage);
+            if (_powerBarSlider != null) {
+                _powerBarSlider.value = ChargePercentage; // Set the slider value
+            }
+            if (_material != null) {
+                _material.SetFloat("_GradientHue", ChargePercentage); // Update material property
+            }
         }
         else {
             SetPowerBarVisibility(false);
-            _fillImage.fillAmount = 0;
+            if (_powerBarSlider != null) {
+                _powerBarSlider.value = 0; // Reset slider value
+            }
         }
     }
 
