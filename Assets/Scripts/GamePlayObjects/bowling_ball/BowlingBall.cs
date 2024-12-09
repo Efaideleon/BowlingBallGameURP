@@ -5,7 +5,7 @@ namespace bowling_ball
     [RequireComponent(typeof(Rigidbody))]
     public class BowlingBall : MonoBehaviour
     {
-        [SerializeField] private float _forceMultiplier = 150f;
+        [SerializeField] private float _forceMultiplier = 50f;
         [SerializeField] private float _spinMultiplier = 10f;
         [SerializeField] private float _lateralFriction = 0.5f;
         [SerializeField] private float _rayCastDistance = 0.1f;
@@ -14,6 +14,7 @@ namespace bowling_ball
 
         private int _laneLayerMask;
         private Vector3 _throwDirection;
+        private float _power;
 
         /// <summary>
         /// Check if that ball is currently moving.
@@ -47,8 +48,16 @@ namespace bowling_ball
         {
             _rb.isKinematic = false;
             _throwDirection = throwDirection;
+            _power = power;
 
-            Vector3 throwForce = CalculateThrowForce(power);
+            transform.position = new Vector3(transform.position.x,
+                                             transform.position.y, 
+                                             transform.position.z);
+
+            var launchDirection = new Vector3(0, 1, 1);
+            var launchForceMultiplier = 30f;
+            var launchPower = 0.8f;
+            Vector3 throwForce = launchForceMultiplier * launchPower * launchDirection; 
             Vector3 spinTorque = CalculateSpinTorque();
 
             _rb.AddForce(throwForce, ForceMode.Impulse);
@@ -113,7 +122,18 @@ namespace bowling_ball
 
         private Vector3 CalculateThrowForce(float power)
         {
-            return _forceMultiplier * power * Vector3.forward;
+            /*return _forceMultiplier * power * launchDirection; //change the throw vector*/
+            return _forceMultiplier * power * Vector3.forward; //change the throw vector
+        }
+
+        void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Lane"))
+            {
+                Vector3 throwForce = CalculateThrowForce(_power);
+                Debug.Log("Collided with the lane!!");
+                _rb.AddForce(throwForce, ForceMode.Impulse);
+            }
         }
 
         private void DebugLogInfo(RaycastHit hitInfo, Vector3 friction, Vector3 lateralVelocity)
