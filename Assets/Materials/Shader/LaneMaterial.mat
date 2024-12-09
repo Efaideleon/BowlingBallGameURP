@@ -50,16 +50,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AR: -10.4
+    - _AspectRatio: 1.7781754
     - _Float: 29.9
     - _Float_1: 46.05
     - _Float_2: 6.3
     - _Float_3: -3.1
-    - _H: -1000
+    - _H: 512
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _U: 0
-    - _V: -101
-    - _W: 1000
+    - _U: 0.5
+    - _V: 0.5
+    - _W: 500
+    - _Width: 417
+    - _X: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

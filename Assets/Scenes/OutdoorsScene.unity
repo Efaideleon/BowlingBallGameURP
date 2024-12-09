@@ -14312,7 +14312,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1361925311}
   - component: {fileID: 1361925310}
-  - component: {fileID: 1361925309}
   - component: {fileID: 1361925308}
   m_Layer: 0
   m_Name: ReflectionCamera
@@ -14350,7 +14349,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_AllowHDROutput: 1
   m_UseScreenCoordOverride: 0
   m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -14365,14 +14364,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1361925309
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361925307}
-  m_Enabled: 0
 --- !u!20 &1361925310
 Camera:
   m_ObjectHideFlags: 0
@@ -14382,8 +14373,8 @@ Camera:
   m_GameObject: {fileID: 1361925307}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -33172,6 +33163,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7248840955307891535, guid: 0471464c5484ed947aee7c2f9696e519, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248840955307891535, guid: 0471464c5484ed947aee7c2f9696e519, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4ca25655fed42bb48b9f4b8ab3348662, type: 2}
@@ -33182,6 +33177,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 338889100688087372, guid: 0471464c5484ed947aee7c2f9696e519, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6164881700786393513}
+    - targetCorrespondingSourceObject: {fileID: 338889100688087372, guid: 0471464c5484ed947aee7c2f9696e519, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6164881700786393517}
   m_SourcePrefab: {fileID: 100100000, guid: 0471464c5484ed947aee7c2f9696e519, type: 3}
 --- !u!1 &6164881700786393512 stripped
 GameObject:
@@ -33202,6 +33200,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1823688466}
   reflectionCamera: {fileID: 1361925310}
+--- !u!114 &6164881700786393517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164881700786393512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782b0a0cc876fd84198ed21275384404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reflectionMaterial: {fileID: 2100000, guid: 4ca25655fed42bb48b9f4b8ab3348662, type: 2}
 --- !u!4 &6189974715188668812
 Transform:
   m_ObjectHideFlags: 0
