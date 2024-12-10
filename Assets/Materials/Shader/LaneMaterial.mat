@@ -52,6 +52,7 @@ Material:
     m_Floats:
     - _AR: -10.4
     - _AspectRatio: 1.0357143
+    - _AspectRatio: 2.2222223
     - _Float: 29.9
     - _Float_1: 46.05
     - _Float_2: 6.3

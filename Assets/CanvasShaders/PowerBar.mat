@@ -51,8 +51,16 @@ Material:
     - _ColorMask: 15
     - _CustomTime: 1.6881034
     - _Float: 0
+<<<<<<< HEAD
     - _GradientHue: 0
     - _ObjectWidth: 0
+=======
+<<<<<<< HEAD
+    - _GradientHue: 0.7752075
+=======
+    - _GradientHue: 0.77108765
+>>>>>>> 353d04a3ea81e24a7fdda588288d16f473c2e63f
+>>>>>>> 772fc9f54649078f3fef4a1da260e9d4ce2e6869
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
