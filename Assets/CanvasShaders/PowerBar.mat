@@ -49,10 +49,10 @@ Material:
     - _BUILTIN_ZWrite: 0
     - _BUILTIN_ZWriteControl: 0
     - _ColorMask: 15
-    - _CustomTime: 1.6881034
+    - _CustomTime: 1.3409762
     - _Float: 0
+    - _GradientHue: 0
     - _ObjectWidth: 0
-    - _GradientHue: 0.77108765
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0

@@ -15,6 +15,7 @@ public class InputReader : ScriptableObject, PlayerInputActions.IPlayerActions
     public event UnityAction OnMenuOpen = delegate { };
     public event UnityAction OnMenuClosed = delegate { };
     public event UnityAction OnToggleStarted = delegate { };
+    public event UnityAction AnyKey = delegate { };
 
     private PlayerInputActions _inputActions;
 
@@ -80,6 +81,16 @@ public class InputReader : ScriptableObject, PlayerInputActions.IPlayerActions
         {
             case InputActionPhase.Started:
                 OnToggleStarted.Invoke();
+                break;
+        }
+    }
+
+    public void OnAnyKey(InputAction.CallbackContext context)
+    {
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+                AnyKey.Invoke();
                 break;
         }
     }

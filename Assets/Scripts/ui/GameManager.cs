@@ -7,12 +7,12 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        _input.ActionPerformed += DisableReadyPanel;
+        _input.AnyKey += DisableReadyPanel;
     }
 
     void OnDisable()
     {
-        _input.ActionPerformed -= DisableReadyPanel;
+        _input.AnyKey -= DisableReadyPanel;
     }
 
     private void DisableReadyPanel()
